@@ -1,0 +1,33 @@
+label cut_scene1_label:
+    # Assuming GameplayScreen is defined in shared_code.rpy
+    $ renpy.hide_screen("GameplayScreen")
+    window show
+    "Jaily says: \"sample scene\""
+    menu:
+        "Good":
+            pass
+        "Mid":
+            pass
+        "Bad":
+            pass
+        "Trust unlock":
+            pass
+    $ renpy.show_screen("GameplayScreen")
+    return
+
+label puzzle1_stage:
+    $ puzzle_stage = 1
+    $ current_puzzle = Puzzle() # Instantiates the Puzzle class (now from shared_code.rpy)
+    $ current_puzzle.sequence = ["zone1", "zone2", "zone1", "zone2", "zone2", "locked1", "zone1", "locked1", "zone2", "locked1"]
+    $ reset_game() # reset_game will be in shared_code.rpy
+    window hide
+    # All screens and ParticleManagerScreen, particles_screen, etc. are assumed to be in shared_code.rpy
+    show screen sequence_display
+    show screen GameplayScreen
+    show screen ParticleManagerScreen
+    show screen particles_screen
+    show screen puzzle_stats_update
+    show screen Primary_stats
+    show screen game_state_check
+    show screen overheat_overlay
+    pause
