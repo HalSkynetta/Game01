@@ -1,6 +1,4 @@
-*Jules, I need this refactored. I don't need this reengineered. Changing my game functions is ABSOLUTLY FORBIDDEN! Code tweaking is allowed but ONLY FOR CREATING THE FILE SEPERATIONS! You may remove code for puzzles 2-6 for now to keep thing simple, but remember they will be added back in layer once we have this rework done. The code is imperfect (I know the cut scenes don't work yet, we will fix that later) but works and I want to keep it's functionality.
-*The refactor is that I want to divided into seperate files. A file for image defintions. A file that will be for story which contains the game start label. One for the particle system. One for The game logic of how the puzzles work, beause there will be more that one, and a file for puzzle1. Now the puzzle1 file needs to be ONLY what differentiates it from the other puzzles. It will also be a template that allows me to make the other puzzles. It should not contain game mechanics only things like its sequnce and cut scene for example.
-
+*Jules, This is the original file that you refactored ealier. This is for reference only.
 
 init python:
     from collections import namedtuple
