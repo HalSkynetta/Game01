@@ -303,6 +303,16 @@ init python:
 
             if left_mouse_is_down:
                 if not self.is_actively_holding_expected_zone: # Potential start of a new hold
+                    # **** NEW CODE START ****
+                    if current_hovered_zone_id is not None:
+                        # Ensure spawn_particle is globally available or imported.
+                        # We assume it is, as per Ren'Py's typical behavior for functions in init python blocks.
+                        if 'spawn_particle' in globals() and callable(globals()['spawn_particle']):
+                            globals()['spawn_particle'](mouse_pos)
+                        else:
+                            renpy.log("Warning: spawn_particle function not found for click.")
+                    # **** NEW CODE END ****
+
                     if current_hovered_zone_id == self.expected_zone and self.now_func() >= self.cooldown_end_time:
                         # Start a new hold
                         self.is_actively_holding_expected_zone = True
